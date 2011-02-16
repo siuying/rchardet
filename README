@@ -10,25 +10,27 @@ This is a forked project in a effort to make it Ruby 1.9 compatible
 ### How do use
     
     require 'rubygems'
-    require 'rchardet'
+    require 'rchardet19'
 
     >> cd = CharDet.detect("some data")
-    => {"confidence"=>1.0, "encoding"=>"ascii"}
+    => #<struct #<Class:0x102216198> encoding="ascii", confidence=1.0>
 
 ### How to use - in real life
 
-`detect` takes the variable `data`, that contains some unknown encoding.
+`detect` takes the variable `data` that contains an unknown encoding.
 
-We then try to change the encoding to UTF-8 but only if we are at least 60% sure that we found the right encoding.
+We then try to change the encoding to UTF-8, but only if we are at least ~ 60% sure that we found the right encoding.
 
     data = "Some unknown data"
     cd = CharDet.detect(data)
-    data = cd["confidence"] > 0.6 ? Iconv.conv(cd["encoding"], "UTF-8", data) : data
+    data = cd.confidence > 0.6 ? Iconv.conv(cd.encoding, "UTF-8", data) : data
     
-### What is being returned?
-    
-- **encoding** (String) The string encoding
-- **confidence** (Float) The confidence level of the *encoding*, from 0 to 1, where 1 is the best.
+### What do I've to work with?
+
+A struct is being returned from the `detect` method and has the following accessors.
+
+- **encoding** (String) Encoding of the ingoing string, `UTF-8` for example.
+- **confidence** (Float) The confidence level of the *encoding*, from 0.0 to 1.0, where 1.0 is the best.
     
 ### How do install
 
