@@ -31,6 +31,17 @@ A struct is being returned from the `detect` method and has the following access
 
 - **encoding** (String) Encoding of the ingoing string, `UTF-8` for example.
 - **confidence** (Float) The confidence level of the *encoding*, from 0.0 to 1.0, where 1.0 is the best.
+
+### Make it silent
+
+The `detect` takes two arguments, the string to guess the encoding on and an option hash.
+
+You can use the option hash de decide if you want the `detect` method to raise an exception or not if the ingoing string is `nil`.
+
+    >> CharDet.detect("some data", :silent => true) # Won't raise an exception
+    >> CharDet.detect(nil, :silent => true)         # Won't raise an exception
+    >> CharDet.detect(nil)                          # Will raise an exception
+    >> CharDet.detect(nil, :silent => false)        # Will raise an exception
     
 ### How do install
 
