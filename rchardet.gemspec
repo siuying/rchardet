@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths    = ["lib"]
   s.has_rdoc         = false # TODO: fix
-  s.extra_rdoc_files = ['README', 'COPYING']
+  s.extra_rdoc_files = ['README.markdown', 'COPYING']
   
   s.add_development_dependency('rspec')
 end
