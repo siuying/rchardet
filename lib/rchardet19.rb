@@ -57,12 +57,20 @@ require 'rchardet/utf8prober'
 
 module CharDet
   VERSION = "1.3"
-  def CharDet.detect(aBuf)
-    raise Exception.new("Sorry, we can't guess the encoding on a nil object") if aBuf.nil?
+  def CharDet.detect(aBuf, options = {})
+    if aBuf.nil?
+      raise Exception.new("Sorry, we can't guess the encoding on a nil object") if not options[:silent]
+      return self.create("", 0.0)
+    end
+    
     u = UniversalDetector.new
     u.reset
     u.feed(aBuf)
     u.close
-    Struct.new(:encoding, :confidence).new(u.result['encoding'], u.result['confidence'])
+    self.create(u.result['encoding'], u.result['confidence'])
+  end
+  
+  def self.create(encoding, confidence)
+    Struct.new(:encoding, :confidence).new(encoding, confidence)
   end
 end

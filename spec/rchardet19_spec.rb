@@ -28,4 +28,12 @@ describe CharDet do
       CharDet.detect("")
     }.should_not raise_error(Exception)
   end
+  
+  it "should be possible to make detect silent" do
+    lambda {
+      unknown = CharDet.detect(nil, :silent => true)
+      unknown.encoding.should be_empty
+      unknown.confidence.should eq(0.0)
+    }.should_not raise_error(Exception)
+  end
 end
