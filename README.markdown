@@ -1,4 +1,4 @@
-# rCharDet
+# rCharDet*19*
 
 ### [Project Page](http://rubyforge.org/projects/rchardet) | [1.9 Author](https://github.com/edouard/rchardet) | [Original Author](https://github.com/jmhodges/rchardet)
 
@@ -46,3 +46,18 @@ You can use the option hash de decide if you want the `detect` method to raise a
 ### How do install
 
     [sudo] gem install rchardet19
+    
+### How to use it in a rails 3 project
+
+Add `gem 'rchardet19'` to your Gemfile and run `bundle`.
+
+### How to help
+
+- Start by copying the project or make your own branch.
+- Navigate to the root path of the project and run `bundle`.
+- Start by running all tests using rspec, `rspec spec/rchardet19_spec.rb`.
+- Implement your own code, write some tests, commit and do a pull request.
+
+### Requirements
+
+rCharDet19 is tested in OS X 10.6.6 using Ruby 1.8.7 and 1.9.2.
