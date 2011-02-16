@@ -15,4 +15,6 @@ Gem::Specification.new do |s|
   s.require_paths    = ["lib"]
   s.has_rdoc         = false # TODO: fix
   s.extra_rdoc_files = ['README', 'COPYING']
+  
+  s.add_development_dependency('rspec')
 end
