@@ -62,6 +62,8 @@ module CharDet
     u.reset
     u.feed(aBuf)
     u.close
-    u.result
+    Struct.new(:encoding, :confidence).new({
+      :encoding => u.result['encoding'], :confidence => u.result['confidence']
+    })
   end
 end
