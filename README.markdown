@@ -27,7 +27,7 @@ We then try to change the encoding to UTF-8, but only if we are at least ~ 60% s
     
 ### What do I've to work with?
 
-A struct is being returned from the `detect` method and has the following accessors.
+A struct is being returned from the `detect` method, it has the following accessors.
 
 - **encoding** (String) Encoding of the ingoing string, `UTF-8` for example.
 - **confidence** (Float) The confidence level of the *encoding*, from 0.0 to 1.0, where 1.0 is the best.
