@@ -58,6 +58,7 @@ require 'rchardet/utf8prober'
 module CharDet
   VERSION = "1.3"
   def CharDet.detect(aBuf)
+    raise Exception.new("Sorry, we can't guess the encoding on a nil object") if aBuf.nil?
     u = UniversalDetector.new
     u.reset
     u.feed(aBuf)
