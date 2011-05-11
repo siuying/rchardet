@@ -8,9 +8,9 @@ This is a forked project in a effort to make it Ruby 1.9 compatible.
 
 Follow me on [Twitter](http://twitter.com/linusoleander) or [Github](https://github.com/oleander) for more info and updates.
 
-### How to use - example
+### How to use
 
-`detect` takes the variable `data` that contains an unknown encoding.
+`CharDet.detect` takes the variable `data` that contains an unknown encoding.
 
 We then try to change the encoding to UTF-8, but only if we are at least ~ 60% sure that we found the right encoding.
 
