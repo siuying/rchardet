@@ -195,7 +195,7 @@ module CharDet
       # return its order if it is hiragana
       if aStr.length > 1
       	if (aStr[0..0] == "\202") and (aStr[1..1] >= "\x9F") and (aStr[1..1] <= "\xF1")
-      	  return aStr[1] - 0x9F, charLen
+            return aStr[1].ord - 0x9F, charLen
       	end
       end
     
@@ -219,7 +219,7 @@ module CharDet
       # return its order if it is hiragana
       if aStr.length > 1
       	if (aStr[0..0] == "\xA4") and (aStr[1..1] >= "\xA1") and (aStr[1..1] <= "\xF3")
-      	  return aStr[1] - 0xA1, charLen
+            return aStr[1].ord - 0xA1, charLen
       	end
       end
 
